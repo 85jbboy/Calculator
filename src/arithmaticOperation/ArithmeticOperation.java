@@ -5,16 +5,10 @@ import java.util.Scanner;
 public class ArithmeticOperation {
 	static int tmpResult = 0;
 	
-	static int getFirstValue(Scanner scanner) {
-		System.out.print("첫번째 값 입력: ");
-		tmpResult = scanner.nextInt();
-		return tmpResult;
-	}
-	
-	static int getNextValue(Scanner scanner) {
-		System.out.print("다음 값 입력: ");
-		int nextNum= scanner.nextInt();
-		return nextNum;
+	static int getValue(Scanner scanner) {
+		System.out.print("피연산자를 입력하세요: ");
+		int num = scanner.nextInt();
+		return num;
 	}
 	
 	static String getOperator(Scanner scanner) {
@@ -43,15 +37,14 @@ public class ArithmeticOperation {
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		tmpResult = getFirstValue(sc);
-		
+		tmpResult = getValue(sc);
 		while(true) {
 			String operator = getOperator(sc);
 			if (operator.equals("q")) {
 				System.out.println("종료합니다");
 				break;
 			}
-			int nextNum = getNextValue(sc);
+			int nextNum = getValue(sc);
 			tmpResult = calculate(operator, tmpResult, nextNum);
 			print(tmpResult);
 		}
