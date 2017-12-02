@@ -3,17 +3,21 @@ package arithmaticOperation;
 import java.util.Scanner;
 
 public class Calculator {
-	public int calculate(String operator, int tmpResult, int nextNum) {
-		if (operator.equals("+")) {
-			tmpResult += nextNum;			
-		} else if (operator.equals("-")) {
-			tmpResult -= nextNum;
-		} else if (operator.equals("*")) {
-			tmpResult *= nextNum;
-		} else if (operator.equals("/")) {
-			tmpResult /= nextNum;
-		} else 
-			System.out.println("사칙연산할 수 없습니다.");
-		return tmpResult;
+	
+	public int calculate(int[] num, String[] operator) {
+		int result = num[0];
+	
+		for(int i = 1; i < num.length; i++) {
+			if (operator[i*2-1].equals("+")) {
+				result += num[i];
+			} else if (operator[i*2-1].equals("-")) {
+				result -= num[i];
+			} else if (operator[i*2-1].equals("*")) {
+				result *= num[i];
+			} else if (operator[i*2-1].equals("/")) {
+				result /= num[i];
+			}
+		}
+		return result;
 	}
 }
